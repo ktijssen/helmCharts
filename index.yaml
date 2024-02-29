@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  certificates:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2024-02-29T10:35:42.494625544Z"
+    description: A Helm chart for Kubernetes
+    digest: 89af1bd7a166a7fd72906826dac7213dc4c279717ee37ea7e64803ad5f8de4df
+    name: certificates
+    type: application
+    urls:
+    - https://github.com/ktijssen/helmCharts/releases/download/certificates-0.0.1/certificates-0.0.1.tgz
+    version: 0.0.1
+generated: "2024-02-29T10:35:42.494635661Z"
