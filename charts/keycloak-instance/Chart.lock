@@ -1,0 +1,6 @@
+dependencies:
+- name: keycloak-operator
+  repository: https://ktijssen.github.io/helmCharts
+  version: 23.0.6
+digest: sha256:696cf8ef4102dd71937858658875b99021e274960469ef4af4f84b2adb511bec
+generated: "2024-02-29T12:29:58.123954+01:00"

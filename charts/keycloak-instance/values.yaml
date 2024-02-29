@@ -1,0 +1,149 @@
+# Default values for keycloak-instance.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+nameOverride: ""
+fullnameOverride: ""
+
+# -- Create a Secret for the database credetials instead of using a Secret that already exists
+dbCredentialsSecret:
+  create: false
+  # name: ""
+  # usernameSecret: 
+  #   name: username
+  #   value: postgres
+  # passwordSecret:
+  #   name: password
+  #   value: postgres
+
+additionalOptions: {}
+  # - name: proxy
+  #   value: "edge"
+
+db:
+  # -- The full database JDBC URL. If not provided, a default URL is set based on the selected database vendor.
+  # -- For instance, if using 'postgres', the default JDBC URL would be 'jdbc:postgresql://localhost/keycloak'.
+  url: ""
+  # -- Sets the hostname of the default JDBC URL of the chosen vendor. If the `url` option is set, this option is ignored.
+  host: "localhost"
+  # -- Sets the database name of the default JDBC URL of the chosen vendor. If the `url` option is set, this option is ignored.
+  database: "keycloak"
+  # -- Sets the port of the default JDBC URL of the chosen vendor. If the `url` option is set, this option is ignored.
+  port: "5432"
+  # -- The initial size of the connection pool.
+  poolInitialSize: ""
+  # -- The maximum size of the connection pool.
+  poolMaxSize: ""
+  # -- The minimal size of the connection pool.
+  poolMinSize: ""
+  # -- The database schema to be used.
+  schema: ""
+  # -- The reference to a existing secret holding the username of the database user.
+  usernameSecret: {}
+    # name: ""
+    # key: ""
+    # optional: false
+  # -- The reference to a existing secret holding the password of the database user.
+  passwordSecret: {}
+    # name: ""
+    # key: ""
+    # optional: false
+  # -- The database vendor.
+  # -- Possible options: dev-file (default), dev-mem, mariadb, mssql, mysql, oracle, postgres
+  vendor: "postgres"
+
+# -- In this section you can configure Keycloak features, which should be enabled/disabled.
+features:
+  enabled: []
+    # - docker
+    # - authorization
+  disabled: []
+    # - admin
+    # - step-up-authentication
+  # # -- Disabled Keycloak features
+  # disabled: []
+  # # -- Enabled Keycloak features
+  # enabled: []
+
+hostname:
+  # -- The hostname for accessing the administration console.
+  admin: ""
+  # --Set the base URL for accessing the administration console, including scheme, host, port and path
+  adminUrl: ""
+  # -- Hostname for the Keycloak server.
+  hostname: "localhost"
+  # -- Disables dynamically resolving the hostname from request headers.
+  strict: false
+  # -- By default backchannel URLs are dynamically resolved from request headers to allow internal and external applications.
+  strictBackchannel: false
+
+http:
+  # -- Enables the HTTP listener.
+  httpEnabled: true
+  # -- The used HTTP port.
+  httpPort: "8080"
+  # -- The used HTTPS port.
+  httpsPort: "8443"
+  # -- A secret containing the TLS configuration for HTTPS.
+  tlsSecret: ""
+
+customImage:
+  # -- Custom keycloak-instance image host registry
+  registry: ""
+  # -- Custom keycloak-instance  image repository
+  repository: ""
+  # -- OCustom keycloak-instance  image tag
+  tag: ""
+
+# -- Secret(s) that might be used when pulling an image from a private container image registry or repository.
+imagePullSecrets: []
+  # - name: regcred
+
+ingress:
+  enabled: false
+  className: "nginx"
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: keycloak-instance.local
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - keycloak-instance.local
+
+# -- Number of Keycloak instances in HA mode. Default is 1.
+instances: 1
+
+transaction:
+  # --Determine whether Keycloak should use a non-XA datasource in case the database does not support XA transactions.
+  xaEnabled: false
+
+# -- In this section you can configure podTemplate advanced features, not production-ready, and not supported settings.
+# -- Use at your own risk and open an issue with your use-case if you don't find an alternative way.
+unsupported: {}
+  # podTemplate:
+  #   metadata:
+  #     labels:
+  #       my-label: "keycloak"
+  #   spec:
+  #     containers:
+  #       - volumeMounts:
+  #           - name: test-volume
+  #             mountPath: /mnt/test
+  #     volumes:
+  #       - name: test-volume
+  #         secret:
+  #           secretName: keycloak-additional-secret
+
+
+## Addtional Helm Chart "Keycloak Operator - v23.0.6"
+keycloak-operator:
+  # -- Install Keycloak Operator
+  enabled: false
+
+  # -- Override the deployment namespace; defaults to .Release.Namespace
+  namespaceOverride: ""

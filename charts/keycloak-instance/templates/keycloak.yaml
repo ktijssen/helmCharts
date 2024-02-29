@@ -1,0 +1,82 @@
+apiVersion: k8s.keycloak.org/v2alpha1
+kind: Keycloak
+metadata:
+  labels:
+    {{- include "keycloak-instance.labels" . | nindent 4 }}
+  name: {{ include "keycloak-instance.fullname" . }}
+  namespace: {{ include "keycloak-instance.namespace" . }}
+spec:
+  {{- with .Values.additionalOptions }}
+  additionalOptions:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  db:
+    {{- if .Values.db.url }}
+    url: {{ .Values.db.url }}
+    {{- end }}
+    {{- if not .Values.db.url }}
+    host: {{ required "A valid .Values.db.host entry required!" .Values.db.host }}
+    port: {{ required "A valid .Values.db.port entry required!" .Values.db.port }}
+    database: {{ required "A valid .Values.db.database entry required!" .Values.db.database }}
+    {{- end }}
+    {{- if .Values.db.admin }}
+    admin: {{ .Values.db.admin }}
+    {{- end }}
+    {{- if .Values.db.poolInitialSize }}
+    poolInitialSize: {{ .Values.db.poolInitialSize }}
+    {{- end }}
+    {{- if .Values.db.poolMaxSize }}
+    poolMaxSize: {{ .Values.db.poolMaxSize }}
+    {{- end }}
+    {{- if .Values.db.poolMinSize }}
+    poolMinSize: {{ .Values.db.poolMinSize }}
+    {{- end }}
+    {{- if .Values.db.schema }}
+    schema: {{ .Values.db.schema }}
+    {{- end }}
+    {{- if .Values.db.usernameSecret }}
+    usernameSecret: 
+      {{- toYaml .Values.db.usernameSecret | nindent 6 }}
+    {{- end }}
+    {{- if .Values.db.passwordSecret }}
+    passwordSecret: 
+      {{- toYaml .Values.db.passwordSecret | nindent 6 }}
+    {{- end }}
+    {{- if .Values.db.vendor }}
+    vendor: {{ .Values.db.vendor }}
+    {{- end }}
+  {{- with .Values.features}}
+  features:
+  {{- toYaml . | nindent 4 }}
+  {{- end }}
+  hostname:
+    {{- if .Values.hostname.admin }}
+    admin: {{ .Values.hostname.admin }}
+    {{- end }}
+    {{- if .Values.hostname.adminUrl }}
+    adminUrl: {{ .Values.hostname.adminUrl }}
+    {{- end }}
+    {{- if .Values.hostname.hostname }}
+    hostname: {{ .Values.hostname.hostname }}
+    {{- end }}
+    strict: {{ .Values.hostname.strict }}
+    strictBackchannel: {{ .Values.hostname.strictBackchannel }}
+  http:
+    httpEnabled: {{ .Values.http.httpEnabled }}
+    httpPort: {{ .Values.http.httpPort }}
+    httpsPort: {{ .Values.http.httpsPort }}
+    {{- if .Values.http.tlsSecret }}
+    tlsSecret: {{ .Values.http.tlsSecret }}
+    {{- end }}
+  instances: {{ .Values.instances }}
+  {{- with .Values.imagePullSecrets }}
+  imagePullSecrets:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  transaction:
+    xaEnabled: {{ .Values.transaction.xaEnabled}}
+  {{- with .Values.unsupported}}
+  unsupported:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+
