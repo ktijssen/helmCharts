@@ -22,3 +22,10 @@ version: 23.0.6
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
 appVersion: "23.0.6"
+
+home: https://ktijssen.github.io/helmCharts
+maintainers:
+  - name: ktijssen
+    email: kevin.tijssen@gmail.com
+sources:
+  - https://github.com/ktijssen/helmCharts

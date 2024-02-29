@@ -1,0 +1,45 @@
+# Keycloak-Operator
+
+{{ template "chart.versionBadge" .  }}{{ template "chart.typeBadge" .  }}{{ template "chart.appVersionBadge" .  }}
+
+## Description
+
+{{ template "chart.description" . }}
+
+{{ template "chart.homepageLine" . }}
+
+{{ template "chart.sourcesSection" . }}
+
+{{ template "chart.maintainersSection" . }}
+
+{{ template "chart.requirementsSection" . }}
+
+## Usage
+
+Please add the {{ .Name }} repository before installing any chart provided by this repository:
+
+```bash
+helm repo add ktijssen https://ktijssen.github.io/helmCharts
+helm repo update
+```
+
+### Installing the Chart
+
+To install the chart with the release name {{ .Name }} run:
+
+```bash
+helm install {{ .Name }} ktijssen/{{ .Name }} --version {{ .Version }}
+```
+
+After a few seconds, {{ .Name }} should be running.
+
+To install the chart in a specific namespace use following commands:
+
+```bash
+helm install {{ .Name }} ktijssen/{{ .Name }} --namespace keycloak-operator --create-namespace --version {{ .Version }}
+```
+
+> **Tip**: List all releases using `helm list`, a release is a name used to track a specific deployment
+
+{{ template "chart.valuesSection" . }}
+

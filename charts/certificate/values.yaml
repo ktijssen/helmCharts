@@ -1,0 +1,21 @@
+# Default values for sidero-omni.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+nameOverride: ""
+fullnameOverride: ""
+
+# -- Add annotations
+annotations: {}
+
+# -- List of all the domain for this certificate
+dnsNames: []
+issuerRef:
+  # -- Name of the ClusterIssuer or Issuer
+  name: ""
+  # -- Kind of the ClusterIssuer or Issuer
+  kind: ""
+# -- Name of the secret
+secretName: ""
+# -- Common name (Optional)
+commonName: ""

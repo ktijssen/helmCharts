@@ -1,0 +1,23 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  {{- with .Values.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  labels:
+{{ include "certificate.labels" . | indent 4 }}
+  name: {{ default (printf "%s-cert" (include "certificate.fullname" .)) }}
+spec:
+  {{- with .Values.commonName  }}
+  commonName: {{ . | quote }}
+  {{- end }}
+  {{- with .Values.dnsNames  }}
+  dnsNames:
+  {{ toYaml . | indent 2 }}
+  {{- end }}
+  issuerRef:
+    name: {{ .Values.issuerRef.name }}
+    kind: {{ .Values.issuerRef.kind }}
+  secretName: {{ .Values.secretName }}

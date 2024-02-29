@@ -1,6 +1,6 @@
 apiVersion: v2
-name: certificates
-description: A Helm chart to generate multiple certificates for Kubernetes
+name: certificate
+description: A Helm chart to generate individual certificate for Kubernetes
 
 # A chart can be either an 'application' or a 'library' chart.
 #

@@ -28,3 +28,10 @@ dependencies:
   version: "23.0.6"
   repository: "https://ktijssen.github.io/helmCharts"
   condition: keycloak-operator.enabled
+
+home: https://ktijssen.github.io/helmCharts
+maintainers:
+  - name: ktijssen
+    email: kevin.tijssen@gmail.com
+sources:
+  - https://github.com/ktijssen/helmCharts
