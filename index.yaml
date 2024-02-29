@@ -11,4 +11,15 @@ entries:
     urls:
     - https://github.com/ktijssen/helmCharts/releases/download/certificates-0.0.1/certificates-0.0.1.tgz
     version: 0.0.1
-generated: "2024-02-29T10:35:42.494635661Z"
+  keycloak-operator:
+  - apiVersion: v2
+    appVersion: 23.0.6
+    created: "2024-02-29T11:27:35.900072209Z"
+    description: A Helm chart for Kubernetes
+    digest: 3f48dd85c926ced4bf90915ef049ecdc332124cf2840ce0755dff8b07367681e
+    name: keycloak-operator
+    type: application
+    urls:
+    - https://github.com/ktijssen/helmCharts/releases/download/keycloak-operator-23.0.6/keycloak-operator-23.0.6.tgz
+    version: 23.0.6
+generated: "2024-02-29T11:27:35.900101168Z"
