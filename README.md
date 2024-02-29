@@ -2,7 +2,7 @@
 ## Usage
 Helm is required to use and operate these charts. You can add the Traefik Helm Repository like below:
 ```
-helm repo add traefik https://ktijssen.github.io/helmCharts/
+helm repo add ktijssen https://ktijssen.github.io/helmCharts/
 ```
 Documentation and the default values.yaml can be found in relevant chart repository:
 
