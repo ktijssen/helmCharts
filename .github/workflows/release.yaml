@@ -32,6 +32,7 @@ jobs:
           helm repo add ktijssen https://ktijssen.github.io/helmCharts
 
       - name: Run chart-releaser
+        if: '!cancelled()'
         uses: helm/chart-releaser-action@v1.6.0
         with:
           charts_dir: charts
