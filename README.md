@@ -1,5 +1,4 @@
-##  charts
-# Traefik Charts
+# Helm Charts
 ## Usage
 Helm is required to use and operate these charts. You can add the Traefik Helm Repository like below:
 ```
