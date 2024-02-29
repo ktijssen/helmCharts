@@ -1,6 +1,6 @@
 # Helm Charts
 ## Usage
-Helm is required to use and operate these charts. You can add the Traefik Helm Repository like below:
+[Helm](helm.sh) is required to use and operate these charts. You can add the Helm Repository like below:
 ```
 helm repo add ktijssen https://ktijssen.github.io/helmCharts/
 ```
