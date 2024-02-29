@@ -1,0 +1,15 @@
+# Default values for sidero-omni.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+certs: []
+# - name: "www.example.com"
+#   namespace: "default"
+#   annotations: {}
+#   commonName: ""
+#   dnsNames: []
+#   # - www.example.com
+#   issuerRef:
+#     name: ""
+#     kind: ""
+#   secretName: "www.example.com-tls"

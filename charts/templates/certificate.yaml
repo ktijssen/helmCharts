@@ -1,0 +1,33 @@
+{{- range .Values.certs }}
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  {{- with .annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  labels:
+    app.kubernetes.io/name: {{ (printf "%s-cert" (.name)) }}
+    helm.sh/chart: "{{ $.Chart.Name }}-{{ $.Chart.Version }}"
+    app.kubernetes.io/instance: "{{ $.Release.Name }}"
+    app.kubernetes.io/version: "{{ $.Chart.AppVersion }}"
+    app.kubernetes.io/managed-by: "{{ $.Release.Service }}"
+  name: {{ (printf "%s-cert" (.name)) }}
+  namespace: {{ .namespace }}
+spec:
+  {{- with .commonName  }}
+  commonName: {{ . | quote }}
+  {{- end }}
+  {{- with .dnsNames  }}
+  dnsNames:
+  {{ toYaml . | indent 2 }}
+  {{- end }}
+  issuerRef:
+    name: {{ .issuerRef.name }}
+    kind: {{ .issuerRef.kind }}
+    {{- with .issuerRef.group  }}
+    group: {{ . }}
+    {{- end }}
+  secretName: {{ .secretName }}
+{{- end }}
