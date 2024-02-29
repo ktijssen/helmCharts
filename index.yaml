@@ -1,0 +1,54 @@
+apiVersion: v1
+entries:
+  certificate:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-02-29T15:31:10.114628134Z"
+    description: A Helm chart to generate individual certificate for Kubernetes
+    digest: d26fd91d95d9dc286dd0a4004aaa31e9629804ab967d26795f46d82f12795c49
+    home: https://ktijssen.github.io/helmCharts
+    maintainers:
+    - email: kevin.tijssen@gmail.com
+      name: ktijssen
+    name: certificate
+    sources:
+    - https://github.com/ktijssen/helmCharts
+    type: application
+    urls:
+    - https://github.com/ktijssen/helmCharts/releases/download/certificate-1.0.0/certificate-1.0.0.tgz
+    version: 1.0.0
+  certificates:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-02-29T15:31:10.306786134Z"
+    description: A Helm chart to generate multiple certificates for Kubernetes
+    digest: d1c9a6d8aa639428ee594998195e07c933182e2c65cea667b000127949ad6536
+    home: https://ktijssen.github.io/helmCharts
+    maintainers:
+    - email: kevin.tijssen@gmail.com
+      name: ktijssen
+    name: certificates
+    sources:
+    - https://github.com/ktijssen/helmCharts
+    type: application
+    urls:
+    - https://github.com/ktijssen/helmCharts/releases/download/certificates-1.0.0/certificates-1.0.0.tgz
+    version: 1.0.0
+  keycloak-operator:
+  - apiVersion: v2
+    appVersion: 23.0.6
+    created: "2024-02-29T15:31:10.499221551Z"
+    description: A Helm chart for Kubernetes
+    digest: dacf44a28640a04956757c0e19453258a29e9ff256648ae934b8e9650589c1cd
+    home: https://ktijssen.github.io/helmCharts
+    maintainers:
+    - email: kevin.tijssen@gmail.com
+      name: ktijssen
+    name: keycloak-operator
+    sources:
+    - https://github.com/ktijssen/helmCharts
+    type: application
+    urls:
+    - https://github.com/ktijssen/helmCharts/releases/download/keycloak-operator-23.0.6/keycloak-operator-23.0.6.tgz
+    version: 23.0.6
+generated: "2024-02-29T15:31:10.499357301Z"
